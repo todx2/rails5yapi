@@ -4,7 +4,7 @@ describe Api::V1::SessionsController, '#create', type: :api do
   describe 'Authoriation' do
     context 'with wrong params' do
       before do
-        user = FactoryGirl.create(:user, {
+        user = FactoryBot.create(:user, {
           password: 'foobar', password_confirmation: nil
         })
 
@@ -18,7 +18,7 @@ describe Api::V1::SessionsController, '#create', type: :api do
 
     context 'with correct params' do
       before do
-        user = FactoryGirl.create(:user, {
+        user = FactoryBot.create(:user, {
           password: 'foobar', password_confirmation: nil
         })
 

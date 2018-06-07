@@ -4,7 +4,7 @@ describe Api::V1::FeedsController, '#show', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
 
         get api_v1_user_feed_path(user.id), format: :json
       end
@@ -16,9 +16,9 @@ describe Api::V1::FeedsController, '#show', type: :api do
     context 'when authenticated as a regular user' do
       before do
         user = create_and_sign_in_user
-        5.times.collect{ FactoryGirl.create(:user) }.each do |u|
-          5.times{ FactoryGirl.create(:micropost, user: u) }
-          FactoryGirl.create(:relationship, follower: u, followed: user)
+        5.times.collect{ FactoryBot.create(:user) }.each do |u|
+          5.times{ FactoryBot.create(:micropost, user: u) }
+          FactoryBot.create(:relationship, follower: u, followed: user)
         end
 
         get api_v1_microposts_path, format: :json
@@ -41,10 +41,10 @@ describe Api::V1::FeedsController, '#show', type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin_user
-        user = FactoryGirl.create(:user)
-        5.times.collect{ FactoryGirl.create(:user) }.each do |u|
-          5.times{ FactoryGirl.create(:micropost, user: u) }
-          FactoryGirl.create(:relationship, follower: u, followed: user)
+        user = FactoryBot.create(:user)
+        5.times.collect{ FactoryBot.create(:user) }.each do |u|
+          5.times{ FactoryBot.create(:micropost, user: u) }
+          FactoryBot.create(:relationship, follower: u, followed: user)
         end
 
         get api_v1_microposts_path, format: :json

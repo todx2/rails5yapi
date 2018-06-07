@@ -25,7 +25,7 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     pwd = Faker::Internet.password
 

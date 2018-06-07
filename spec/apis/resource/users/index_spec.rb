@@ -4,7 +4,7 @@ describe Api::V1::UsersController, '#index', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        5.times{ FactoryGirl.create(:user) }
+        5.times{ FactoryBot.create(:user) }
 
         get api_v1_users_path, format: :json
       end
@@ -16,7 +16,7 @@ describe Api::V1::UsersController, '#index', type: :api do
     context 'when authenticated as a regular user' do
       before do
         create_and_sign_in_user
-        5.times{ FactoryGirl.create(:user) }
+        5.times{ FactoryBot.create(:user) }
 
         get api_v1_users_path, format: :json
       end
@@ -40,7 +40,7 @@ describe Api::V1::UsersController, '#index', type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin_user
-        5.times{ FactoryGirl.create(:user) }
+        5.times{ FactoryBot.create(:user) }
 
         get api_v1_users_path, format: :json
       end

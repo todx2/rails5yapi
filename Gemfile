@@ -15,7 +15,11 @@ gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',          '3.3.6'
 gem 'puma',                    '3.4.0'
-gem 'sass-rails',              '5.0.5'
+
+#fix#4  ted  for sprocket warning only
+#gem 'sass-rails',              '5.0.5'
+gem 'sass-rails',              '5.0.6'
+
 gem 'uglifier',                '3.0.0'
 gem 'coffee-rails',            '4.2.1'
 gem 'jquery-rails',            '4.1.1'
@@ -65,7 +69,8 @@ gem 'rack-attack'
 gem 'redis-activesupport'
 
 group :development, :test do
-gem 'rspec-mocks'
+   #ted...these two most likey not needed ...zimbleh nw yechemerkacew
+  gem 'rspec-mocks'
    gem 'rspec-core'
   #ted fix1--rspec-expectations
   gem 'rspec-expectations'
@@ -73,7 +78,10 @@ gem 'rspec-mocks'
   gem 'rspec-rails', '~> 3.5'
   gem 'rspec-api_helpers', '1.0.3'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+#ted fix 5 for warning only
+  #gem 'factory_girl_rails'
+gem 'factory_bot_rails'
+
   gem 'rspec-json_schema', :git => "git://github.com/blazed/rspec-json_schema.git"
   gem 'pry-rails'
 end

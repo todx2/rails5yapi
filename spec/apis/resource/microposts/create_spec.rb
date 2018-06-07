@@ -4,8 +4,8 @@ describe Api::V1::MicropostsController, '#create', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        user = FactoryGirl.create(:user)
-        micropost = FactoryGirl.attributes_for(:micropost).merge(user_id: user.id)
+        user = FactoryBot.create(:user)
+        micropost = FactoryBot.attributes_for(:micropost).merge(user_id: user.id)
 
         post api_v1_microposts_path, jsonapi_style(micropost: micropost.as_json)
       end
@@ -17,7 +17,7 @@ describe Api::V1::MicropostsController, '#create', type: :api do
     context 'when authenticated as a regular user' do
       before do
         user = create_and_sign_in_user
-        @micropost = FactoryGirl.attributes_for(:micropost).merge(user_id: user.id)
+        @micropost = FactoryBot.attributes_for(:micropost).merge(user_id: user.id)
 
         post api_v1_microposts_path, jsonapi_style(micropost: @micropost.as_json)
       end
@@ -35,7 +35,7 @@ describe Api::V1::MicropostsController, '#create', type: :api do
     context 'when authenticated as an admin' do
       before do
         user = create_and_sign_in_admin
-        @micropost = FactoryGirl.attributes_for(:micropost).merge(user_id: user.id)
+        @micropost = FactoryBot.attributes_for(:micropost).merge(user_id: user.id)
 
         post api_v1_microposts_path, jsonapi_style(micropost: @micropost.as_json)
       end

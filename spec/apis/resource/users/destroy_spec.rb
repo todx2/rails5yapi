@@ -4,7 +4,7 @@ describe Api::V1::UsersController, type: :api do
   context :destroy do
     context 'when authenticated as a guest' do
       before do
-        @user = FactoryGirl.create(:user)
+        @user = FactoryBot.create(:user)
 
         delete api_v1_user_path(@user.id)
       end
@@ -16,7 +16,7 @@ describe Api::V1::UsersController, type: :api do
     context 'when authenticated as a regular user' do
       before do
         create_and_sign_in_user
-        @user = FactoryGirl.create(:user)
+        @user = FactoryBot.create(:user)
 
         delete api_v1_user_path(@user.id)
       end
@@ -36,7 +36,7 @@ describe Api::V1::UsersController, type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin
-        @user = FactoryGirl.create(:user)
+        @user = FactoryBot.create(:user)
 
         delete api_v1_user_path(@user.id)
       end

@@ -4,14 +4,14 @@ module AuthenticationHelper
   end
 
   def create_and_sign_in_user
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     sign_in(user)
     return user
   end
   alias_method :create_and_sign_in_another_user, :create_and_sign_in_user
 
   def create_and_sign_in_admin
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryBot.create(:admin)
     sign_in(admin)
     return admin
   end

@@ -4,8 +4,8 @@ describe Api::V1::FollowingsController, '#create', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        user = FactoryGirl.create(:user)
-        following = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
+        following = FactoryBot.create(:user)
 
         post api_v1_user_following_path(
           user_id: user.id, id: following.id
@@ -18,8 +18,8 @@ describe Api::V1::FollowingsController, '#create', type: :api do
 
     context 'when authenticated as not the owner' do
       before do
-        user = FactoryGirl.create(:user)
-        following = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
+        following = FactoryBot.create(:user)
         create_and_sign_in_user
 
         post api_v1_user_following_path(
@@ -33,8 +33,8 @@ describe Api::V1::FollowingsController, '#create', type: :api do
 
     context 'when authenticated as the owner' do
       before do
-        user = FactoryGirl.create(:user)
-        @following = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
+        @following = FactoryBot.create(:user)
         sign_in(user)
 
         post api_v1_user_following_path(

@@ -4,7 +4,7 @@ describe Api::V1::MicropostsController, '#show', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        micropost = FactoryGirl.create(:micropost)
+        micropost = FactoryBot.create(:micropost)
 
         get api_v1_micropost_path(micropost), format: :json
       end
@@ -16,7 +16,7 @@ describe Api::V1::MicropostsController, '#show', type: :api do
     context 'when authenticated as a regular user' do
       before do
         create_and_sign_in_user
-        @micropost = FactoryGirl.create(:micropost)
+        @micropost = FactoryBot.create(:micropost)
 
         get api_v1_micropost_path(@micropost), format: :json
       end
@@ -38,7 +38,7 @@ describe Api::V1::MicropostsController, '#show', type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin
-        @micropost = FactoryGirl.create(:micropost)
+        @micropost = FactoryBot.create(:micropost)
 
         get api_v1_micropost_path(@micropost), format: :json
       end

@@ -4,7 +4,7 @@ describe Api::V1::UsersController, '#update', type: :api do
   describe 'Authorization' do
     context 'when authenticated as a guest user' do
       before do
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
         @user.name = 'Something else'
 
@@ -18,7 +18,7 @@ describe Api::V1::UsersController, '#update', type: :api do
     context 'when authenticated as a regular user' do
       before do
         create_and_sign_in_user
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
         @user.name = 'Something else'
 
@@ -42,7 +42,7 @@ describe Api::V1::UsersController, '#update', type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
         @user.name = 'Something else'
 

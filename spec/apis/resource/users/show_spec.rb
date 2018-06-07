@@ -4,7 +4,7 @@ describe Api::V1::UsersController, '#show', type: :api do
   describe 'Authorization' do
     context 'when as guest' do
       before do
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
 
         get api_v1_user_path(@user.id)
@@ -23,7 +23,7 @@ describe Api::V1::UsersController, '#show', type: :api do
     context 'when authenticated as a regular user' do
       before do
         create_and_sign_in_user
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
 
         get api_v1_user_path(@user.id)
@@ -46,7 +46,7 @@ describe Api::V1::UsersController, '#show', type: :api do
     context 'when authenticated as an admin' do
       before do
         create_and_sign_in_admin
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
         @user = User.last!
 
         get api_v1_user_path(@user.id)

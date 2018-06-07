@@ -4,8 +4,8 @@ describe Api::V1::FollowersController, '#destroy', type: :api do
   describe 'Authorization' do
     context 'when not authenticated' do
       before do
-        user = FactoryGirl.create(:user)
-        5.times{ FactoryGirl.create(:relationship, followed: user) }
+        user = FactoryBot.create(:user)
+        5.times{ FactoryBot.create(:relationship, followed: user) }
 
         delete api_v1_user_follower_path(
           user_id: user.id, id: user.followers.first!.id
@@ -18,8 +18,8 @@ describe Api::V1::FollowersController, '#destroy', type: :api do
 
     context 'when authenticated as not the owner' do
       before do
-        user = FactoryGirl.create(:user)
-        5.times{ FactoryGirl.create(:relationship, followed: user) }
+        user = FactoryBot.create(:user)
+        5.times{ FactoryBot.create(:relationship, followed: user) }
         create_and_sign_in_user
 
         @follower = user.followers.first!
@@ -36,7 +36,7 @@ describe Api::V1::FollowersController, '#destroy', type: :api do
     context 'when autenticated as the owner' do
       before do
         user = create_and_sign_in_user
-        5.times{ FactoryGirl.create(:relationship, followed: user) }
+        5.times{ FactoryBot.create(:relationship, followed: user) }
 
         @follower = user.followers.first!
 
